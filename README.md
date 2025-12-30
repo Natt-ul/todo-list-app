@@ -48,7 +48,7 @@ Pastikan kamu sudah install:
 
 1. **Clone repository**
    ```bash
-   git clone https://github.com/Natt-ui/todo-list-app.git
+   git clone https://github.com/Natt-ul/todo-list-app.git
    ```
 
 2. **Pindahkan ke folder htdocs**
@@ -200,7 +200,7 @@ Breakpoints:
 
 ### Ideas & Suggestions
 
-Punya ide untuk fitur baru? Silakan buka [issue](https://github.com/Natt-ui/todo-list-app/issues) atau contribute langsung!
+Punya ide untuk fitur baru? Silakan buka [issue](https://github.com/Natt-ul/todo-list-app/issues) atau contribute langsung!
 
 ## 🤝 Contributing
 
@@ -238,7 +238,7 @@ git push origin fitur-baru
 
 ## 🐛 Bug Reports
 
-Menemukan bug? Silakan buka [issue](https://github.com/Natt-ui/todo-list-app/issues) dengan format:
+Menemukan bug? Silakan buka [issue](https://github.com/Natt-ul/todo-list-app/issues) dengan format:
 
 - **Bug Description** - Apa yang terjadi?
 - **Steps to Reproduce** - Cara reproduce bug
@@ -274,10 +274,10 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 👨‍💻 Author
 
-**Natt-ui**
+**Natt-ul**
 
-- GitHub: [@Natt-ui](https://github.com/Natt-ui)
-- Repository: [todo-list-app](https://github.com/Natt-ui/todo-list-app)
+- GitHub: [@Natt-ul](https://github.com/Natt-ul)
+- Repository: [todo-list-app](https://github.com/Natt-ul/todo-list-app)
 
 ## 🙏 Acknowledgments
 
@@ -290,8 +290,8 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 Butuh bantuan? Ada pertanyaan?
 
-- 📫 Open an [issue](https://github.com/Natt-ui/todo-list-app/issues)
-- 💬 Start a [discussion](https://github.com/Natt-ui/todo-list-app/discussions)
+- 📫 Open an [issue](https://github.com/Natt-ul/todo-list-app/issues)
+- 💬 Start a [discussion](https://github.com/Natt-ul/todo-list-app/discussions)
 
 ## ⭐ Show Your Support
 
@@ -303,6 +303,6 @@ Kalau project ini membantu kamu, kasih ⭐️ ya!
 
 **[⬆ Back to Top](#-todo-list-app)**
 
-Made with ❤️ by [Natt-ui](https://github.com/Natt-ui)
+Made with by [Natt-ul](https://github.com/Natt-ul)
 
 </div>
