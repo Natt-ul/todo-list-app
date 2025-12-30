@@ -11,6 +11,7 @@ if (isset($_POST['add_task']) && !empty($_POST['task'])) {
     $_SESSION['tasks'][] = [
         'id' => uniqid(),
         'title' => htmlspecialchars($_POST['task']),
+        'priority' => $_POST['priority'] ?? 'medium',
         'completed' => false,
         'created_at' => date('Y-m-d H:i:s')
     ];
@@ -32,7 +33,7 @@ if (isset($_GET['toggle'])) {
 
 // Delete task
 if (isset($_GET['delete'])) {
-    $_SESSION['tasks'] = array_filter($_SESSION['tasks'], function($task) {
+    $_SESSION['tasks'] = array_filter($_SESSION['tasks'], function ($task) {
         return $task['id'] != $_GET['delete'];
     });
     header('Location: index.php');
@@ -41,25 +42,31 @@ if (isset($_GET['delete'])) {
 ?>
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List App</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <h1>📝 My Todo List</h1>
-        
+
         <!-- Form Add Task -->
         <form method="POST" class="add-form">
-            <input 
-                type="text" 
-                name="task" 
-                placeholder="Tambah task baru..." 
+            <input
+                type="text"
+                name="task"
+                placeholder="Tambah task baru..."
                 required
-                autocomplete="off"
-            >
+                autocomplete="off">
+            <select name="priority" class="priority-select">
+                <option value="high">🔴 High</option>
+                <option value="medium" selected>🟡 Medium</option>
+                <option value="low">🟢 Low</option>
+            </select>
             <button type="submit" name="add_task">Tambah</button>
         </form>
 
@@ -71,12 +78,17 @@ if (isset($_GET['delete'])) {
                 <?php foreach ($_SESSION['tasks'] as $task): ?>
                     <div class="task-item <?php echo $task['completed'] ? 'completed' : ''; ?>">
                         <div class="task-info">
-                            <input 
-                                type="checkbox" 
+                            <input
+                                type="checkbox"
                                 <?php echo $task['completed'] ? 'checked' : ''; ?>
-                                onchange="window.location.href='?toggle=<?php echo $task['id']; ?>'"
-                            >
+                                onchange="window.location.href='?toggle=<?php echo $task['id']; ?>'">
                             <span class="task-title"><?php echo $task['title']; ?></span>
+                            <span class="priority-badge priority-<?php echo $task['priority'] ?? 'medium'; ?>">
+                                <?php
+                                $icons = ['high' => '🔴', 'medium' => '🟡', 'low' => '🟢'];
+                                echo $icons[$task['priority'] ?? 'medium'];
+                                ?>
+                            </span>
                             <span class="task-date"><?php echo date('d M Y, H:i', strtotime($task['created_at'])); ?></span>
                         </div>
                         <a href="?delete=<?php echo $task['id']; ?>" class="delete-btn" onclick="return confirm('Hapus task ini?')">
@@ -89,10 +101,10 @@ if (isset($_GET['delete'])) {
 
         <!-- Stats -->
         <?php if (!empty($_SESSION['tasks'])): ?>
-            <?php 
-                $total = count($_SESSION['tasks']);
-                $completed = count(array_filter($_SESSION['tasks'], fn($t) => $t['completed']));
-                $pending = $total - $completed;
+            <?php
+            $total = count($_SESSION['tasks']);
+            $completed = count(array_filter($_SESSION['tasks'], fn($t) => $t['completed']));
+            $pending = $total - $completed;
             ?>
             <div class="stats">
                 <div class="stat-item">
@@ -111,4 +123,5 @@ if (isset($_GET['delete'])) {
         <?php endif; ?>
     </div>
 </body>
+
 </html>

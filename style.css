@@ -190,3 +190,17 @@ h1 {
         margin-top: 5px;
     }
 }
+
+.priority-select {
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background: white;
+}
+
+.priority-badge {
+    font-size: 20px;
+    margin-left: 10px;
+}
